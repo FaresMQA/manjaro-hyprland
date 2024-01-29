@@ -2,4 +2,6 @@
 Hyprland dotfiles for manjaro
 
 # Showcase
-![](https://github.com/FaresMQA/manjaro-hyprland/blob/main/showcase.gif)
+![alt text](https://github.com/FaresMQA/manjaro-hyprland/blob/main/img1.png)
+![alt text](https://github.com/FaresMQA/manjaro-hyprland/blob/main/img2.png)
+![alt text](https://github.com/FaresMQA/manjaro-hyprland/blob/main/img3.png)
