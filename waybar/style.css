@@ -1,0 +1,70 @@
+*{
+    font-family: JetBrainsMono SpaceMono;
+    font-size: 13px;
+    min-height: 0;
+    color: white;
+}
+
+window#waybar {
+    background-color: #151515;
+    opacity: 0.9;
+}
+
+#workspaces{
+    margin-top: 1px;
+    margin-bottom: 2px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+
+#workspaces button{
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 1px 10px;
+    font-weight: bolder;
+    /* background: #7C9D96; */
+}
+
+#workspaces button.active, #workspaces button.focused{
+    /* padding: 0 12px; */
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;    
+  margin-right: 10px;
+  border-style: solid;
+  border-width: 0px 0px 5px;
+  border-color: #16a187;
+}
+
+#tray,
+#mpd,
+#custom-weather,
+#cpu, 
+#temperature, 
+#memory,
+#sway-mode,
+#backlight, 
+#pulseaudio, 
+#custom-vpn,
+#disk,
+#custom-power,
+#battery, 
+#clock, 
+#language,
+#idle_inhibitor,
+#network {
+	padding: 5 5px;
+	margin-right: 10px;
+  border-style: solid;
+  border-width: 0px 0px 3px;
+  border-color: #16a187;
+}
+/* #custom-power { */
+/* 	padding: 5 10px; */
+/* 	margin-right: 10px; */
+/*   border-style: solid; */
+/*   border-width: 0px 0px 3px; */
+/*   border-color: #30EEA6; */
+/*   font-size : 15px; */
+/* } */
+#custom-logo {
+  background-image: url("/home/fares/.config/waybar/Mobile.png.png");
+}

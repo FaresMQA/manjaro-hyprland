@@ -1,0 +1,142 @@
+{
+"layer": "top",
+"position": "top",
+"height": 10,
+"margin-bottom":0,
+"margin-top":0,
+
+"modules-left": ["image#logo","custom/power","cpu","memory","temperature","disk"],
+"modules-center": ["hyprland/workspaces"],
+"modules-right":  ["tray","pulseaudio","hyprland/language","clock"],
+
+"image#logo": {
+	"path": "/home/fares/.config/waybar/Manjaro-logo.jpg",
+	"size": 32,
+  "on-click": "killall wofi || wofi --show drun"
+	//"interval": 5,
+},
+"custom/power": {
+	"format": " ⏻ {}",
+	"max-length": 15,
+	"on-click": "wlogout",
+	//"on-click-right": "sonata"
+},
+"battery": {
+  "states": {
+  "warning": 30,
+  "critical": 15
+  },
+  "format": "{icon}&#8239;{capacity}%",
+  "format-charging": "&#8239;{capacity}%",
+  "format-plugged": "&#8239;{capacity}%",
+  "format-alt": "{icon} {time}",
+  "format-icons": ["", "", "", "", "", "", ""]
+},
+"hyprland/workspaces": {
+     "sort-by-name": true,
+     "on-click": "activate"
+},
+"hyprland/window": {
+    "max-length": 200,
+    "separate-outputs": true
+},
+"hyprland/language": {
+	"format": "{short} {shortDescription}",
+},
+"tray": {
+    "icon-size": 16,
+    "spacing": 6
+},
+"clock": {
+    "locale": "C", 
+    "format": " {:%I:%M %p}",
+    "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
+},
+"cpu": {
+    "format": "&#8239;{usage}%",
+    "format": "&#8239;{usage}%",
+    "tooltip": false,
+    "on-click": "alacritty -e 'htop'"
+},
+"memory": {
+    "interval": 30,
+    "format": " {used:0.2f}GB",
+    "max-length": 10,
+    "tooltip": false,
+    "warning": 70,
+    "critical": 90
+},
+"disk": {
+  "interval" : 30,
+  "format" : "{specific_free:0.2f} GB/{specific_total:0.2f} GB",
+  "unit" : "GB"
+},
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C {icon}",
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""]
+  },
+"backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon}&#8239;{percent}%",
+    "format-icons": ["", ""],
+    "on-scroll-down": "brightnessctl -c backlight set 1%-",
+    "on-scroll-up": "brightnessctl -c backlight set +1%"
+},
+"pulseaudio": {
+  // "scroll-step": 1, // %, can be a float
+  "format": "{icon} {volume}% {format_source}",
+  "format-bluetooth": "{icon} {volume}% {format_source}",
+  "format-bluetooth-muted": " {format_source}",
+  "format-muted": "  {format_source}",
+  "format-source": " {volume}%",
+  "format-source-muted": "",
+  "format-icons": {
+    "headphone": "",
+    "hands-free": "",
+    "headset": "🎧",
+    "phone": "",
+    "portable": "",
+    "car": "",
+    "default": ["", "", ""]
+  },
+  "on-click": "pavucontrol"
+},
+  "random-icons": {
+    "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+    "on": " "
+  },
+  "repeat-icons": {
+    "on": " "
+  },
+  "single-icons": {
+    "on": "1 "
+  },
+  "state-icons": {
+    "paused": "",
+    "playing": ""
+  },
+  "tooltip-format": "MPD (connected)",
+  "tooltip-format-disconnected": "MPD (disconnected)",
+  "max-length": 35
+},
+"custom/recorder": {
+    "format": " Rec",
+    "format-disabled": " Off-air", //An empty format will hide the module.
+    "return-type": "json",
+    "interval": 1,
+    "exec": "echo '{\"class\": \"recording\"}'",
+    "exec-if": "pgrep wf-recorder",
+},
+"custom/audiorec": {
+    "format": "♬ Rec",
+    "format-disabled": "♬ Off-air", //An empty format will hide the module.
+    "return-type": "json",
+    "interval": 1,
+    "exec": "echo '{\"class\": \"audio recording\"}'",
+    "exec-if": "pgrep ffmpeg",
+},
+}
